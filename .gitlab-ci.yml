@@ -14,4 +14,4 @@ maven:test:
     - gitlab-org
   except:
     - schedules
-  script: "mvn $MAVEN_CLI_OPTS clean test"
+  script: "mvn clean test"
