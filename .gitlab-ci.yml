@@ -1,2 +1,19 @@
 image: /maven:3.6-jdk-12
 
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode -q"
+  DOCKER_VERSION: "17.09"
+
+stages:
+  - test
+
+maven:test:
+  stage: test
+  tags:
+    - rsc
+    - shared
+    - docker
+  except:
+    - schedules
+  script: "mvn $MAVEN_CLI_OPTS clean test"
