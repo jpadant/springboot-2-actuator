@@ -11,9 +11,7 @@ stages:
 maven:test:
   stage: test
   tags:
-    - rsc
-    - shared
-    - docker
+    - gitlab-org
   except:
     - schedules
   script: "mvn $MAVEN_CLI_OPTS clean test"
